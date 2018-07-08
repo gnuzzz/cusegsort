@@ -159,6 +159,8 @@ namespace bb {
         cuda_err = cudaMemcpy(keys_d, keysB_d, sizeof(K) * n, cudaMemcpyDeviceToDevice);
         CUDA_CHECK(cuda_err, "copy to keys_d from keysB_d");
 
+        for (int i = 0; i < SEGBIN_NUM - 1; i++) cudaStreamDestroy(streams[i]);
+
         return 1;
       }
 

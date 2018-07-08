@@ -231,7 +231,40 @@ int sort() {
   return 0;
 }
 
+int sort_loop() {
+  int n = 4000;
+  float* vector = new float[n];
+  for (int i = 0; i < n; i++) {
+    vector[i] = (float)(rand()%(n-1-0+1)+0);
+  }
+  cudaError_t err;
+  float* vector_d;
+  err = cudaMalloc((void**)&vector_d, sizeof(float)*n);
+  CUDA_CHECK(err, "loop: alloc vector_d");
+  err = cudaMemcpy(vector_d, vector, sizeof(int   )*n, cudaMemcpyHostToDevice);
+  CUDA_CHECK(err, "loop: copy to vector_d");
+
+  bb::k::SortContext<float> context_k(n, 1);
+
+  size_t free;
+  size_t total;
+
+  for (int k = 0; k < 10; k++) {
+    for (int i = 0; i < 1000; i++) {
+      bb::matrix::k::bb_segsort<float>(vector_d, 1, n, &context_k);
+    }
+    cudaMemGetInfo(&free, &total);
+    printf("k: %d, %I64d/%I64d\n", k, total, free);
+  }
+
+  err = cudaFree(vector_d);
+  CUDA_CHECK(err, "loop: free vector_d");
+
+  return 0;
+}
+
 int main() {
   sort();
+//  sort_loop();
   return 0;
 }
