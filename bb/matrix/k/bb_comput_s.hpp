@@ -15,8 +15,7 @@
 #ifndef _HPP_BB_MATRIX_K_COMPUT_S
 #define _HPP_BB_MATRIX_K_COMPUT_S
 
-#include <limits>
-
+#include "../../bb_numeric_limits.hpp"
 #include "../../k/bb_exch.hpp"
 #include "../../bb_comput_s.hpp"
 
@@ -58,7 +57,7 @@ namespace bb {
         const int seg_size = cols;
         if (bin_it < bin_size) {
           k = cols * bin[bin_it];
-          rg_k0 = (tid + 0 < seg_size) ? key[k + tid + 0] : std::numeric_limits<K>::max();
+          rg_k0 = (tid + 0 < seg_size) ? key[k + tid + 0] : bb::numeric_limits::max<K>();
           // sort 2 elements
           // exch_intxn: generate exch_intxn()
           exch_intxn(rg_k0,
@@ -83,8 +82,8 @@ namespace bb {
         const int seg_size = cols;
         if (bin_it < bin_size) {
           k = cols * bin[bin_it];
-          rg_k0 = (tid + 0 < seg_size) ? key[k + tid + 0] : std::numeric_limits<K>::max();
-          rg_k1 = (tid + 2 < seg_size) ? key[k + tid + 2] : std::numeric_limits<K>::max();
+          rg_k0 = (tid + 0 < seg_size) ? key[k + tid + 0] : bb::numeric_limits::max<K>();
+          rg_k1 = (tid + 2 < seg_size) ? key[k + tid + 2] : bb::numeric_limits::max<K>();
           // sort 4 elements
           // exch_intxn: switch to exch_local()
           CMP_SWP_K(K, rg_k0, rg_k1);
@@ -116,10 +115,10 @@ namespace bb {
         const int seg_size = cols;
         if (bin_it < bin_size) {
           k = cols * bin[bin_it];
-          rg_k0 = (tid + 0 < seg_size) ? key[k + tid + 0] : std::numeric_limits<K>::max();
-          rg_k1 = (tid + 2 < seg_size) ? key[k + tid + 2] : std::numeric_limits<K>::max();
-          rg_k2 = (tid + 4 < seg_size) ? key[k + tid + 4] : std::numeric_limits<K>::max();
-          rg_k3 = (tid + 6 < seg_size) ? key[k + tid + 6] : std::numeric_limits<K>::max();
+          rg_k0 = (tid + 0 < seg_size) ? key[k + tid + 0] : bb::numeric_limits::max<K>();
+          rg_k1 = (tid + 2 < seg_size) ? key[k + tid + 2] : bb::numeric_limits::max<K>();
+          rg_k2 = (tid + 4 < seg_size) ? key[k + tid + 4] : bb::numeric_limits::max<K>();
+          rg_k3 = (tid + 6 < seg_size) ? key[k + tid + 6] : bb::numeric_limits::max<K>();
           // sort 8 elements
           // exch_intxn: switch to exch_local()
           CMP_SWP_K(K, rg_k0, rg_k1);
@@ -166,10 +165,10 @@ namespace bb {
         const int seg_size = cols;
         if (bin_it < bin_size) {
           k = cols * bin[bin_it];
-          rg_k0 = (tid + 0 < seg_size) ? key[k + tid + 0] : std::numeric_limits<K>::max();
-          rg_k1 = (tid + 4 < seg_size) ? key[k + tid + 4] : std::numeric_limits<K>::max();
-          rg_k2 = (tid + 8 < seg_size) ? key[k + tid + 8] : std::numeric_limits<K>::max();
-          rg_k3 = (tid + 12 < seg_size) ? key[k + tid + 12] : std::numeric_limits<K>::max();
+          rg_k0 = (tid + 0 < seg_size) ? key[k + tid + 0] : bb::numeric_limits::max<K>();
+          rg_k1 = (tid + 4 < seg_size) ? key[k + tid + 4] : bb::numeric_limits::max<K>();
+          rg_k2 = (tid + 8 < seg_size) ? key[k + tid + 8] : bb::numeric_limits::max<K>();
+          rg_k3 = (tid + 12 < seg_size) ? key[k + tid + 12] : bb::numeric_limits::max<K>();
           // sort 16 elements
           // exch_intxn: switch to exch_local()
           CMP_SWP_K(K, rg_k0, rg_k1);
@@ -292,10 +291,10 @@ namespace bb {
         const int seg_size = cols;
         if (bin_it < bin_size) {
           k = cols * bin[bin_it];
-          rg_k0 = (tid + 0 < seg_size) ? key[k + tid + 0] : std::numeric_limits<K>::max();
-          rg_k1 = (tid + 8 < seg_size) ? key[k + tid + 8] : std::numeric_limits<K>::max();
-          rg_k2 = (tid + 16 < seg_size) ? key[k + tid + 16] : std::numeric_limits<K>::max();
-          rg_k3 = (tid + 24 < seg_size) ? key[k + tid + 24] : std::numeric_limits<K>::max();
+          rg_k0 = (tid + 0 < seg_size) ? key[k + tid + 0] : bb::numeric_limits::max<K>();
+          rg_k1 = (tid + 8 < seg_size) ? key[k + tid + 8] : bb::numeric_limits::max<K>();
+          rg_k2 = (tid + 16 < seg_size) ? key[k + tid + 16] : bb::numeric_limits::max<K>();
+          rg_k3 = (tid + 24 < seg_size) ? key[k + tid + 24] : bb::numeric_limits::max<K>();
           // sort 32 elements
           // exch_intxn: switch to exch_local()
           CMP_SWP_K(K, rg_k0, rg_k1);
@@ -421,10 +420,10 @@ namespace bb {
         const int seg_size = cols;
         if (bin_it < bin_size) {
           k = cols * bin[bin_it];
-          rg_k0 = (tid + 0 < seg_size) ? key[k + tid + 0] : std::numeric_limits<K>::max();
-          rg_k1 = (tid + 16 < seg_size) ? key[k + tid + 16] : std::numeric_limits<K>::max();
-          rg_k2 = (tid + 32 < seg_size) ? key[k + tid + 32] : std::numeric_limits<K>::max();
-          rg_k3 = (tid + 48 < seg_size) ? key[k + tid + 48] : std::numeric_limits<K>::max();
+          rg_k0 = (tid + 0 < seg_size) ? key[k + tid + 0] : bb::numeric_limits::max<K>();
+          rg_k1 = (tid + 16 < seg_size) ? key[k + tid + 16] : bb::numeric_limits::max<K>();
+          rg_k2 = (tid + 32 < seg_size) ? key[k + tid + 32] : bb::numeric_limits::max<K>();
+          rg_k3 = (tid + 48 < seg_size) ? key[k + tid + 48] : bb::numeric_limits::max<K>();
           // sort 64 elements
           // exch_intxn: switch to exch_local()
           CMP_SWP_K(K, rg_k0, rg_k1);
@@ -575,22 +574,22 @@ namespace bb {
         const int seg_size = cols;
         if (bin_it < bin_size) {
           k = cols * bin[bin_it];
-          rg_k0 = (tid + 0 < seg_size) ? key[k + tid + 0] : std::numeric_limits<K>::max();
-          rg_k1 = (tid + 8 < seg_size) ? key[k + tid + 8] : std::numeric_limits<K>::max();
-          rg_k2 = (tid + 16 < seg_size) ? key[k + tid + 16] : std::numeric_limits<K>::max();
-          rg_k3 = (tid + 24 < seg_size) ? key[k + tid + 24] : std::numeric_limits<K>::max();
-          rg_k4 = (tid + 32 < seg_size) ? key[k + tid + 32] : std::numeric_limits<K>::max();
-          rg_k5 = (tid + 40 < seg_size) ? key[k + tid + 40] : std::numeric_limits<K>::max();
-          rg_k6 = (tid + 48 < seg_size) ? key[k + tid + 48] : std::numeric_limits<K>::max();
-          rg_k7 = (tid + 56 < seg_size) ? key[k + tid + 56] : std::numeric_limits<K>::max();
-          rg_k8 = (tid + 64 < seg_size) ? key[k + tid + 64] : std::numeric_limits<K>::max();
-          rg_k9 = (tid + 72 < seg_size) ? key[k + tid + 72] : std::numeric_limits<K>::max();
-          rg_k10 = (tid + 80 < seg_size) ? key[k + tid + 80] : std::numeric_limits<K>::max();
-          rg_k11 = (tid + 88 < seg_size) ? key[k + tid + 88] : std::numeric_limits<K>::max();
-          rg_k12 = (tid + 96 < seg_size) ? key[k + tid + 96] : std::numeric_limits<K>::max();
-          rg_k13 = (tid + 104 < seg_size) ? key[k + tid + 104] : std::numeric_limits<K>::max();
-          rg_k14 = (tid + 112 < seg_size) ? key[k + tid + 112] : std::numeric_limits<K>::max();
-          rg_k15 = (tid + 120 < seg_size) ? key[k + tid + 120] : std::numeric_limits<K>::max();
+          rg_k0 = (tid + 0 < seg_size) ? key[k + tid + 0] : bb::numeric_limits::max<K>();
+          rg_k1 = (tid + 8 < seg_size) ? key[k + tid + 8] : bb::numeric_limits::max<K>();
+          rg_k2 = (tid + 16 < seg_size) ? key[k + tid + 16] : bb::numeric_limits::max<K>();
+          rg_k3 = (tid + 24 < seg_size) ? key[k + tid + 24] : bb::numeric_limits::max<K>();
+          rg_k4 = (tid + 32 < seg_size) ? key[k + tid + 32] : bb::numeric_limits::max<K>();
+          rg_k5 = (tid + 40 < seg_size) ? key[k + tid + 40] : bb::numeric_limits::max<K>();
+          rg_k6 = (tid + 48 < seg_size) ? key[k + tid + 48] : bb::numeric_limits::max<K>();
+          rg_k7 = (tid + 56 < seg_size) ? key[k + tid + 56] : bb::numeric_limits::max<K>();
+          rg_k8 = (tid + 64 < seg_size) ? key[k + tid + 64] : bb::numeric_limits::max<K>();
+          rg_k9 = (tid + 72 < seg_size) ? key[k + tid + 72] : bb::numeric_limits::max<K>();
+          rg_k10 = (tid + 80 < seg_size) ? key[k + tid + 80] : bb::numeric_limits::max<K>();
+          rg_k11 = (tid + 88 < seg_size) ? key[k + tid + 88] : bb::numeric_limits::max<K>();
+          rg_k12 = (tid + 96 < seg_size) ? key[k + tid + 96] : bb::numeric_limits::max<K>();
+          rg_k13 = (tid + 104 < seg_size) ? key[k + tid + 104] : bb::numeric_limits::max<K>();
+          rg_k14 = (tid + 112 < seg_size) ? key[k + tid + 112] : bb::numeric_limits::max<K>();
+          rg_k15 = (tid + 120 < seg_size) ? key[k + tid + 120] : bb::numeric_limits::max<K>();
           // sort 128 elements
           // exch_intxn: switch to exch_local()
           CMP_SWP_K(K, rg_k0, rg_k1);
@@ -1012,14 +1011,14 @@ namespace bb {
         const int seg_size = cols;
         if (bin_it < bin_size) {
           k = cols * bin[bin_it];
-          rg_k0 = (tid + 0 < seg_size) ? key[k + tid + 0] : std::numeric_limits<K>::max();
-          rg_k1 = (tid + 32 < seg_size) ? key[k + tid + 32] : std::numeric_limits<K>::max();
-          rg_k2 = (tid + 64 < seg_size) ? key[k + tid + 64] : std::numeric_limits<K>::max();
-          rg_k3 = (tid + 96 < seg_size) ? key[k + tid + 96] : std::numeric_limits<K>::max();
-          rg_k4 = (tid + 128 < seg_size) ? key[k + tid + 128] : std::numeric_limits<K>::max();
-          rg_k5 = (tid + 160 < seg_size) ? key[k + tid + 160] : std::numeric_limits<K>::max();
-          rg_k6 = (tid + 192 < seg_size) ? key[k + tid + 192] : std::numeric_limits<K>::max();
-          rg_k7 = (tid + 224 < seg_size) ? key[k + tid + 224] : std::numeric_limits<K>::max();
+          rg_k0 = (tid + 0 < seg_size) ? key[k + tid + 0] : bb::numeric_limits::max<K>();
+          rg_k1 = (tid + 32 < seg_size) ? key[k + tid + 32] : bb::numeric_limits::max<K>();
+          rg_k2 = (tid + 64 < seg_size) ? key[k + tid + 64] : bb::numeric_limits::max<K>();
+          rg_k3 = (tid + 96 < seg_size) ? key[k + tid + 96] : bb::numeric_limits::max<K>();
+          rg_k4 = (tid + 128 < seg_size) ? key[k + tid + 128] : bb::numeric_limits::max<K>();
+          rg_k5 = (tid + 160 < seg_size) ? key[k + tid + 160] : bb::numeric_limits::max<K>();
+          rg_k6 = (tid + 192 < seg_size) ? key[k + tid + 192] : bb::numeric_limits::max<K>();
+          rg_k7 = (tid + 224 < seg_size) ? key[k + tid + 224] : bb::numeric_limits::max<K>();
           // sort 256 elements
           // exch_intxn: switch to exch_local()
           CMP_SWP_K(K, rg_k0, rg_k1);
@@ -1354,13 +1353,13 @@ namespace bb {
             CMP_SWP_K(K, rg_k0, rg_k1);
           } else {
             rg_k0 = (sml_len + tid1 + (big_warp_id << 7) + 0 < seg_size) ? key[k + sml_len + tid1 + (big_warp_id << 7) +
-                                                                               0] : std::numeric_limits<K>::max();
+                                                                               0] : bb::numeric_limits::max<K>();
             rg_k1 = (sml_len + tid1 + (big_warp_id << 7) + 32 < seg_size) ? key[k + sml_len + tid1 +
-                                                                                (big_warp_id << 7) + 32] : std::numeric_limits<K>::max();
+                                                                                (big_warp_id << 7) + 32] : bb::numeric_limits::max<K>();
             rg_k2 = (sml_len + tid1 + (big_warp_id << 7) + 64 < seg_size) ? key[k + sml_len + tid1 +
-                                                                                (big_warp_id << 7) + 64] : std::numeric_limits<K>::max();
+                                                                                (big_warp_id << 7) + 64] : bb::numeric_limits::max<K>();
             rg_k3 = (sml_len + tid1 + (big_warp_id << 7) + 96 < seg_size) ? key[k + sml_len + tid1 +
-                                                                                (big_warp_id << 7) + 96] : std::numeric_limits<K>::max();
+                                                                                (big_warp_id << 7) + 96] : bb::numeric_limits::max<K>();
             // exch_intxn: switch to exch_local()
             CMP_SWP_K(K, rg_k0, rg_k1);
             CMP_SWP_K(K, rg_k2, rg_k3);
@@ -1488,48 +1487,48 @@ namespace bb {
           s_a = find_kth3(start, lhs_len, start + lhs_len, rhs_len, gran);
           s_b = lhs_len + gran - s_a;
           if (sml_warp) {
-            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
-            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
+            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k0 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k1 = p ? tmp_k0 : tmp_k1;
           } else {
-            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
-            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
+            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k0 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k1 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k2 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k3 = p ? tmp_k0 : tmp_k1;
@@ -1575,48 +1574,48 @@ namespace bb {
           s_a = find_kth3(start, lhs_len, start + lhs_len, rhs_len, gran);
           s_b = lhs_len + gran - s_a;
           if (sml_warp) {
-            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
-            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
+            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k0 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k1 = p ? tmp_k0 : tmp_k1;
           } else {
-            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
-            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
+            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k0 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k1 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k2 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k3 = p ? tmp_k0 : tmp_k1;
@@ -1730,13 +1729,13 @@ namespace bb {
             CMP_SWP_K(K, rg_k0, rg_k1);
           } else {
             rg_k0 = (sml_len + tid1 + (big_warp_id << 7) + 0 < seg_size) ? key[k + sml_len + tid1 + (big_warp_id << 7) +
-                                                                               0] : std::numeric_limits<K>::max();
+                                                                               0] : bb::numeric_limits::max<K>();
             rg_k1 = (sml_len + tid1 + (big_warp_id << 7) + 32 < seg_size) ? key[k + sml_len + tid1 +
-                                                                                (big_warp_id << 7) + 32] : std::numeric_limits<K>::max();
+                                                                                (big_warp_id << 7) + 32] : bb::numeric_limits::max<K>();
             rg_k2 = (sml_len + tid1 + (big_warp_id << 7) + 64 < seg_size) ? key[k + sml_len + tid1 +
-                                                                                (big_warp_id << 7) + 64] : std::numeric_limits<K>::max();
+                                                                                (big_warp_id << 7) + 64] : bb::numeric_limits::max<K>();
             rg_k3 = (sml_len + tid1 + (big_warp_id << 7) + 96 < seg_size) ? key[k + sml_len + tid1 +
-                                                                                (big_warp_id << 7) + 96] : std::numeric_limits<K>::max();
+                                                                                (big_warp_id << 7) + 96] : bb::numeric_limits::max<K>();
             // exch_intxn: switch to exch_local()
             CMP_SWP_K(K, rg_k0, rg_k1);
             CMP_SWP_K(K, rg_k2, rg_k3);
@@ -1864,48 +1863,48 @@ namespace bb {
           s_a = find_kth3(start, lhs_len, start + lhs_len, rhs_len, gran);
           s_b = lhs_len + gran - s_a;
           if (sml_warp) {
-            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
-            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
+            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k0 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k1 = p ? tmp_k0 : tmp_k1;
           } else {
-            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
-            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
+            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k0 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k1 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k2 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k3 = p ? tmp_k0 : tmp_k1;
@@ -1951,48 +1950,48 @@ namespace bb {
           s_a = find_kth3(start, lhs_len, start + lhs_len, rhs_len, gran);
           s_b = lhs_len + gran - s_a;
           if (sml_warp) {
-            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
-            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
+            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k0 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k1 = p ? tmp_k0 : tmp_k1;
           } else {
-            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
-            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
+            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k0 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k1 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k2 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k3 = p ? tmp_k0 : tmp_k1;
@@ -2072,48 +2071,48 @@ namespace bb {
           s_a = find_kth3(start, lhs_len, start + lhs_len, rhs_len, gran);
           s_b = lhs_len + gran - s_a;
           if (sml_warp) {
-            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
-            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
+            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k0 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k1 = p ? tmp_k0 : tmp_k1;
           } else {
-            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
-            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
+            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k0 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k1 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k2 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k3 = p ? tmp_k0 : tmp_k1;
@@ -2227,13 +2226,13 @@ namespace bb {
             CMP_SWP_K(K, rg_k0, rg_k1);
           } else {
             rg_k0 = (sml_len + tid1 + (big_warp_id << 7) + 0 < seg_size) ? key[k + sml_len + tid1 + (big_warp_id << 7) +
-                                                                               0] : std::numeric_limits<K>::max();
+                                                                               0] : bb::numeric_limits::max<K>();
             rg_k1 = (sml_len + tid1 + (big_warp_id << 7) + 32 < seg_size) ? key[k + sml_len + tid1 +
-                                                                                (big_warp_id << 7) + 32] : std::numeric_limits<K>::max();
+                                                                                (big_warp_id << 7) + 32] : bb::numeric_limits::max<K>();
             rg_k2 = (sml_len + tid1 + (big_warp_id << 7) + 64 < seg_size) ? key[k + sml_len + tid1 +
-                                                                                (big_warp_id << 7) + 64] : std::numeric_limits<K>::max();
+                                                                                (big_warp_id << 7) + 64] : bb::numeric_limits::max<K>();
             rg_k3 = (sml_len + tid1 + (big_warp_id << 7) + 96 < seg_size) ? key[k + sml_len + tid1 +
-                                                                                (big_warp_id << 7) + 96] : std::numeric_limits<K>::max();
+                                                                                (big_warp_id << 7) + 96] : bb::numeric_limits::max<K>();
             // exch_intxn: switch to exch_local()
             CMP_SWP_K(K, rg_k0, rg_k1);
             CMP_SWP_K(K, rg_k2, rg_k3);
@@ -2361,48 +2360,48 @@ namespace bb {
           s_a = find_kth3(start, lhs_len, start + lhs_len, rhs_len, gran);
           s_b = lhs_len + gran - s_a;
           if (sml_warp) {
-            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
-            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
+            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k0 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k1 = p ? tmp_k0 : tmp_k1;
           } else {
-            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
-            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
+            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k0 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k1 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k2 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k3 = p ? tmp_k0 : tmp_k1;
@@ -2448,48 +2447,48 @@ namespace bb {
           s_a = find_kth3(start, lhs_len, start + lhs_len, rhs_len, gran);
           s_b = lhs_len + gran - s_a;
           if (sml_warp) {
-            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
-            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
+            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k0 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k1 = p ? tmp_k0 : tmp_k1;
           } else {
-            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
-            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
+            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k0 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k1 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k2 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k3 = p ? tmp_k0 : tmp_k1;
@@ -2569,48 +2568,48 @@ namespace bb {
           s_a = find_kth3(start, lhs_len, start + lhs_len, rhs_len, gran);
           s_b = lhs_len + gran - s_a;
           if (sml_warp) {
-            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
-            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
+            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k0 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k1 = p ? tmp_k0 : tmp_k1;
           } else {
-            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
-            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
+            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k0 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k1 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k2 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k3 = p ? tmp_k0 : tmp_k1;
@@ -2806,48 +2805,48 @@ namespace bb {
           s_a = find_kth3(start, lhs_len, start + lhs_len, rhs_len, gran);
           s_b = lhs_len + gran - s_a;
           if (sml_warp) {
-            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
-            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
+            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k0 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k1 = p ? tmp_k0 : tmp_k1;
           } else {
-            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
-            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+            tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
+            tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k0 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k1 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k2 = p ? tmp_k0 : tmp_k1;
             if (p) {
               ++s_a;
-              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : std::numeric_limits<K>::max();
+              tmp_k0 = (s_a < lhs_len) ? smem[grp_start_off + s_a] : bb::numeric_limits::max<K>();
             } else {
               ++s_b;
-              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : std::numeric_limits<K>::max();
+              tmp_k1 = (s_b < lhs_len + rhs_len) ? smem[grp_start_off + s_b] : bb::numeric_limits::max<K>();
             }
             p = (s_b >= lhs_len + rhs_len) || ((s_a < lhs_len) && (tmp_k0 <= tmp_k1));
             rg_k3 = p ? tmp_k0 : tmp_k1;

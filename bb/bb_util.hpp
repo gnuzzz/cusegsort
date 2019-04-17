@@ -19,6 +19,7 @@
 #include <vector>
 #include <string>
 #include <cuda_runtime_api.h>
+#include <stdio.h>
 
 #define SEGBIN_NUM 13
 
@@ -33,7 +34,9 @@ namespace bb {
     std::vector <T> arr_h(n);
     cudaMemcpy(&arr_h[0], arr_d, sizeof(T) * n, cudaMemcpyDeviceToHost);
     std::cout << prompt;
-    for (auto v: arr_h) printf("%d ", v);
+    for (int i = 0; i < arr_h.size(); i++) {
+      printf("%d ", arr_h[i]);
+    }
     printf("\n");
   }
 

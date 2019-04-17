@@ -1,6 +1,6 @@
 project(cusegsort)
 
-set(PROJECT_VERSION 1.0.2)
+set(PROJECT_VERSION 1.0.3)
 
 cmake_minimum_required(VERSION 3.11)
 
